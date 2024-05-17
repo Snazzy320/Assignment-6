@@ -12,7 +12,6 @@ const handleGetEmployeeRequest = async (req, res)=>{
         count: employees.length,
         employees
         })
-
 }
 
 
@@ -28,16 +27,10 @@ const handlePostRequest = async (req, res)=>{
 
     await newEmployee.save()
 
-    
         return res.status(200).json({
             message: "succesfull",
             employee: newEmployee
-       })
-
- 
-
-    
-
+       }) 
 }
 
 
@@ -55,8 +48,7 @@ const handleEditEmpoyeeRequest = async (req, res)=>{
 
         {new: true}
     )
-
-
+    
     return res.status(200).json({
         message: "successfull",
         employee: editedEmployee
@@ -71,8 +63,7 @@ const deleteEmployee = async (req, res)=>{
 
     const deletedEmployee = await Employees.findByIdAndDelete(id)
 
-    return res.status(200).json({message: "Deleted Successfully"})
-    
+    return res.status(200).json({message: "Deleted Successfully"}) 
 }
 
 
@@ -94,7 +85,6 @@ const getOneEmployee = async(req,res)=>{
         return res.status(500).json({message: error.message})
 
     }
-    
 }
 
 module.exports = {
